@@ -34,6 +34,10 @@ const Header: React.FC = () => {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
+                    Settings
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
                     Logout
                   </DropdownItem>
                 </DropdownMenu>
