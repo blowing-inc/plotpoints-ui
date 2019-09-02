@@ -6,9 +6,13 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 import Header from './components/Header';
+import Sidebar from './components/Sidebar';
+
 import Login from './Routes/Login';
 import Groups from './Routes/Groups';
 import Logout from './Routes/Logout';
+import Signup from './Routes/Signup';
+import Reset from './Routes/Reset';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -16,13 +20,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 ReactDOM.render(
   <Router>
     <div>
-      <nav>
+      <div>
         <Header />
-      </nav>
+        {/* <Sidebar /> */}
+      </div>
+
       <Route path="/" exact component={App} />
+
+      {/* Users */}
       <Route path="/login" exact component={Login} />
       <Route path="/logout" exact component={Logout} />
+      <Route path="/signup" exact component={Signup} />
+      <Route path="/reset-password" exact component={Reset} />
+
+      {/* App */}
       <Route path="/groups" exact component={Groups} />
+
     </div>
   </Router>,
 document.getElementById('root'));
