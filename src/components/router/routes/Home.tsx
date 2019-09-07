@@ -7,7 +7,7 @@ const Home: React.FC = () => {
   return (
     <HomeLayout>
       <Jumbotron>
-        <h1 className="display-3"> Plot Points </h1>
+        <h1 className="display-3"> PlotPoints </h1>
         <p className="lead">A social platform for book clubs</p>
         <hr className="my-2" />
         <p>Make notes, comments, and react to your favorite books without spoiling it for everyone else.</p>

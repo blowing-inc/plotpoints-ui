@@ -16,13 +16,16 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 
-import Logo from '../../../svg/Logo.svg';
+import Logo from '../../../svg/logo.svg';
 
 const Header: React.FC = (props) => {
   return (
       <div>
         <Navbar color="light" light expand="md">
-          <NavbarBrand href="/">Plot Points</NavbarBrand>
+          <NavbarBrand href="/">
+            <img src={Logo} style={{height: '35px', width: '35px'}} className="app-logo" alt="logo" />
+            PlotPoints
+          </NavbarBrand>
           <NavbarToggler />
           <Collapse  navbar>
             <Nav className="ml-auto" navbar>
