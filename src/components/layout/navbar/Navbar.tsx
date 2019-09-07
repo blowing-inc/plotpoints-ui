@@ -14,7 +14,7 @@ import {
 } from 'reactstrap';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faPlayCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 
 import Logo from '../../../svg/logo.svg';
 
@@ -30,7 +30,9 @@ const Header: React.FC = (props) => {
           <Collapse  navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/login">Login</NavLink>
+                <NavLink href="/listen">
+                  <FontAwesomeIcon icon={faPlayCircle} /> Listen
+                </NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/groups">Groups</NavLink>
@@ -45,7 +47,7 @@ const Header: React.FC = (props) => {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  Login
+                  <FontAwesomeIcon icon={faSignOutAlt} /> Login
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
