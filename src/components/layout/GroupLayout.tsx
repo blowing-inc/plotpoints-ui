@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, Row, Col, ListGroup, ListGroupItem, Badge } from 'reactstrap';
 
-const Content: React.FC = (props) => {
+const GroupLayout: React.FC = (props) => {
   return (
     <div>
       <Container flex>
@@ -25,4 +25,4 @@ const Content: React.FC = (props) => {
   );
 }
 
-export default Content;
+export default GroupLayout;
