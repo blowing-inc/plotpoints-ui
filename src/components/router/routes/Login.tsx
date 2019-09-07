@@ -26,13 +26,18 @@ const Login: React.FC = () => {
             <FormGroup>
               <Label for="examplePassword">Password</Label>
               <Input type="password" name="password" id="examplePassword" placeholder="********" />
-              <Link to="/reset-password">Forgot your password?</Link>
             </FormGroup>
           </Col>
         </Row>
         <Row>
           <Col>
             <Button>Submit</Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Link to="/reset-password">Forgot your password?</Link><br />
+            <Link to="/signup">No account? Create one now!</Link>
           </Col>
         </Row>
       </Form>

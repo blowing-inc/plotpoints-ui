@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Jumbotron, Button } from 'reactstrap';
 
-const App: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <Container>
       <Row>
@@ -21,4 +21,4 @@ const App: React.FC = () => {
   );
 }
 
-export default App;
+export default Home;

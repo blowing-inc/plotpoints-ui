@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Container, Col, Form,
-  FormGroup, Label, Input,
-  Button
+  Container
 } from 'reactstrap';
 
 const Logout: React.FC = () => {
