@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Card, CardImg, CardText, CardBody, CardTitle, CardSubtitle, Button } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle } from 'reactstrap';
 
 import styles from './Groups.module.css';
 

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Row } from 'reactstrap';
 
 import GroupLayout from '../../layout/GroupLayout';
 

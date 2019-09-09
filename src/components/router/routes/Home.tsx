@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Jumbotron, Button } from 'reactstrap';
+import { Jumbotron, Button } from 'reactstrap';
 
 import HomeLayout from '../../layout/HomeLayout';
 
