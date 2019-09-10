@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -19,6 +19,13 @@ import { faCog, faPlayCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-i
 import Logo from '../../../svg/logo.svg';
 
 const Header: React.FC = (props) => {
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  function toggle() {
+    isOpen ? setIsOpen(false): setIsOpen(true);
+  }
+  
   return (
       <div>
         <Navbar color="light" light expand="md">
@@ -26,8 +33,8 @@ const Header: React.FC = (props) => {
             <img src={Logo} style={{height: '35px', width: '35px'}} className="app-logo" alt="logo" />
             PlotPoints
           </NavbarBrand>
-          <NavbarToggler />
-          <Collapse  navbar>
+          <NavbarToggler onClick={toggle} />
+          <Collapse  navbar isOpen={isOpen} >
             <Nav className="ml-auto" navbar>
               <NavItem>
                 <NavLink href="/listen">
