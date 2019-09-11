@@ -1,11 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AudioCard from 'audiocard'
 import ListenLayout from '../../layout/ListenLayout';
 
 import Comments from '../../listen/Comments';
 
+// TODO: AJAX
+const dummyComments = [
+  {"time": 1234, "user": "Daniel", "comment": "Wow so awesome!"},
+  {"time": 1555, "user": "Evan", "comment": "Super cool"},
+  {"time": 2034, "user": "Michael", "comment": "Socking dongers boys"}
+];
 
-const Listen: React.FC = (props) => {
+const Listen: React.FC = () => {
+
+  const [comments, setComments] = useState([]);
+
   return (
     <ListenLayout>
       <AudioCard
@@ -14,7 +23,7 @@ const Listen: React.FC = (props) => {
         title="Tet"
         skipBackSeconds={30}
         skipForwardSeconds={30} />
-      <Comments />
+      <Comments comments={dummyComments} />
     </ListenLayout>
   );
 }

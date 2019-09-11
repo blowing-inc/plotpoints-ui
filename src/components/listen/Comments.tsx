@@ -4,7 +4,18 @@ import { ListGroup, ListGroupItem } from 'reactstrap';
 
 import styles from './Listen.module.css';
 
-const Comments: React.FC = () => {
+
+interface IComment {
+  time: number, // seconds
+  user: string,
+  comment: string
+}
+
+type CommentsProps = {
+  comments: [IComment]
+}
+
+const Comments = (props: CommentsProps) => {
   return (
     <ListGroup className={styles.listGroup}>
       <ListGroupItem className="list-group-item d-flex justify-content-between align-items-center">
@@ -22,6 +33,7 @@ const Comments: React.FC = () => {
         <span><small className="text-muted">01:23</small>  <strong>Mike</strong></span>
         Miller is the c00lest
       </ListGroupItem>
+
     </ListGroup>
   );
 }
