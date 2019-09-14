@@ -1,21 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import AudioCard from 'audiocard';
 
-const Player: React.FC = (props) => {
+interface IProps {
+  source: string
+}
 
-  const [file, setFile] = useState<string>('');
-
-  if (file) {
-    return <AudioCard
-    art="https://seekjustice.fm/art300.jpg"
-    source="https://dts.podtrac.com/redirect.mp3/seekjustice.fm/media/001.mp3"
-    title="Tet"
-    skipBackSeconds={30}
-    skipForwardSeconds={30} />
-  }
+const Player = (props: IProps) => {
   return (
-    <div></div>
+    <AudioCard
+      art="https://seekjustice.fm/art300.jpg"
+      source={props.source}
+      title="Tet"
+      skipBackSeconds={30}
+      skipForwardSeconds={30} />
   );
 }
 
