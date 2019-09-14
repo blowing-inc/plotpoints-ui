@@ -1,19 +1,26 @@
-import React from 'react';
-import AudioCard from 'audiocard'
+import React, { useState } from 'react';
 import ListenLayout from '../../layout/ListenLayout';
 
 import Comments from '../../listen/Comments';
 
+type NullableFile = FileList | null;
+
 const Listen: React.FC = () => {
+
+  const [file, setFile] = useState<string>('');
+
+  const handleChange = (selectorFiles: NullableFile): void => {
+    if (selectorFiles != null ) {
+      const f = selectorFiles.item(0);
+      if (f != null) {
+        setFile(URL.createObjectURL(f));
+      }
+    }
+  }
 
   return (
     <ListenLayout>
-      <AudioCard
-        art="https://seekjustice.fm/art300.jpg"
-        source="https://dts.podtrac.com/redirect.mp3/seekjustice.fm/media/001.mp3"
-        title="Tet"
-        skipBackSeconds={30}
-        skipForwardSeconds={30} />
+      <input type="file" accept="audio/*" onChange={ (e) => handleChange(e.target.files) } />
       <Comments groupId="TODO"/>
     </ListenLayout>
   );
