@@ -23,6 +23,14 @@ const Listen: React.FC = () => {
     }
   }
 
+  const parseURL = (url: string): string => {
+    if (url.includes("drive.google.com")) {
+      return parseGdrive(url);
+    } else {
+      return url;
+    }
+  }
+
   const parseGdrive = (url: string): string => {
     let id = url.split("id=")[1];
     return `https://docs.google.com/uc?export=download&id=${id}`;
@@ -45,7 +53,7 @@ const Listen: React.FC = () => {
             <Input type="file" accept="audio/*" onChange={ (e) => handleFileUpload(e.target.files) } />
             <br />
             <FontAwesomeIcon icon={faGoogleDrive} /> URL of Audio File
-            <Input onChange={ (e) => setFile(parseGdrive(e.target.value)) }/>
+            <Input onChange={ (e) => setFile(parseURL(e.target.value)) }/>
           </FormGroup>
         </Form>
       </ListenLayout>
