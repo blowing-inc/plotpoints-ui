@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ListenLayout from '../../layout/ListenLayout';
-import { Form, FormGroup, Input, InputGroup, InputGroupAddon } from 'reactstrap';
+import { Form, FormGroup, Input } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileUpload } from '@fortawesome/free-solid-svg-icons';
 import { faGoogleDrive } from '@fortawesome/free-brands-svg-icons';
@@ -23,6 +23,11 @@ const Listen: React.FC = () => {
     }
   }
 
+  const parseGdrive = (url: string): string => {
+    let id = url.split("id=")[1];
+    return `https://docs.google.com/uc?export=download&id=${id}`;
+  }
+
   if (file !== "" ) {
     return (
       <ListenLayout>
@@ -40,7 +45,7 @@ const Listen: React.FC = () => {
             <Input type="file" accept="audio/*" onChange={ (e) => handleFileUpload(e.target.files) } />
             <br />
             <FontAwesomeIcon icon={faGoogleDrive} /> URL of Audio File
-            <Input onChange={ (e) => setFile(e.target.value) }/>
+            <Input onChange={ (e) => setFile(parseGdrive(e.target.value)) }/>
           </FormGroup>
         </Form>
       </ListenLayout>
