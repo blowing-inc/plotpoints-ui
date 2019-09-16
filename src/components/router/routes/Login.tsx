@@ -40,8 +40,7 @@ const Login = (props: IProps) => {
           <Col>
             <Button onClick={() => {
               Auth.login(() => {
-                props.history.push("/");
-                console.log(Auth.isAuthenticated);
+                props.history.push("/listen");
               });
             }}>Submit</Button>
           </Col>

@@ -7,24 +7,13 @@ type TProps = RouteProps & {
 }
 
 export const PrivateRoute = ({ component: Component, ...rest }: TProps) => {
-  console.log(Auth.isAuthenticated);
+  console.log(Auth.isAuthenticated());
   return (
-    <Route
-      {...rest}
-      render={props => 
-        Auth.isAuthenticated ? (
-          <Component {...props} />
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/login",
-              state: {
-                from: props.location
-              }
-            }}
-          />
-        )
-      }
-    />
+    <Route {...rest} render={
+      props => 
+        Auth.isAuthenticated()
+        ? ( <Component {...props} />) 
+        : ( <Redirect to={{ pathname: "/login", state: { from: props.location} }} />
+    )}/>
   );
 };

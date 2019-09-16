@@ -1,9 +1,15 @@
 import React from 'react';
 import { Jumbotron, Button } from 'reactstrap';
+import { History, LocationState } from 'history';
 
 import HomeLayout from '../../layout/HomeLayout';
 
-const Home: React.FC = () => {
+interface IProps {
+  history: History<LocationState>
+}
+
+const Home = (props: IProps) => {
+
   return (
     <HomeLayout>
       <Jumbotron>
@@ -12,7 +18,7 @@ const Home: React.FC = () => {
         <hr className="my-2" />
         <p>Make notes, comments, and react to your favorite books without spoiling it for everyone else.</p>
         <p className="lead">
-          <Button color="primary">Get Started</Button>
+          <Button color="primary" onClick={() => props.history.push('/signup')}>Get Started</Button>
         </p>
       </Jumbotron>
     </HomeLayout>
