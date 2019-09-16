@@ -18,7 +18,11 @@ import { faCog, faPlayCircle, faSignOutAlt } from '@fortawesome/free-solid-svg-i
 
 import Logo from '../../../svg/logo.svg';
 
-const Header: React.FC = (props) => {
+interface IProps {
+  isLoggedIn: boolean
+}
+
+const Header = (props: IProps) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -54,7 +58,10 @@ const Header: React.FC = (props) => {
                 </DropdownItem>
                 <DropdownItem divider />
                 <DropdownItem>
-                  <FontAwesomeIcon icon={faSignOutAlt} /> Login
+                  <NavLink href="/listen">
+                    <FontAwesomeIcon icon={faSignOutAlt} />
+                    { props.isLoggedIn ? "Logout" : "Login" }
+                  </NavLink>
                 </DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>

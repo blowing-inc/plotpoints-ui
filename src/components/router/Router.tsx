@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as BRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { PrivateRoute } from './PrivateRoute';
 
 import Home from './routes/Home';
 import Login from './routes/Login';
@@ -12,7 +13,7 @@ import Settings from './routes/Settings';
 
 const Router: React.FC = () => {
   return (
-    <BRouter>
+    <BrowserRouter>
       <div>
         <Route path="/" exact component={Home} />
 
@@ -24,11 +25,11 @@ const Router: React.FC = () => {
         <Route path="/settings" exact component={Settings} />
 
         {/* App */}
-        <Route path="/groups" exact component={Groups} />
-        <Route path="/listen" exact component={Listen} />
+        <PrivateRoute path="/groups" exact component={Groups} />
+        <PrivateRoute path="/listen" exact component={Listen} />
 
       </div>
-    </BRouter>
+    </BrowserRouter>
   );
 }
 

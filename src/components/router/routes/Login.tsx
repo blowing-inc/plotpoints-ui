@@ -5,8 +5,15 @@ import {
   Button, Row
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { History, LocationState } from 'history';
 
-const Login: React.FC = () => {
+import Auth from '../../Auth';
+
+interface IProps {
+  history: History<LocationState>;
+}
+
+const Login = (props: IProps) => {
   return (
     <Container className="Login">
       <h2> Sign In </h2>
@@ -31,7 +38,12 @@ const Login: React.FC = () => {
         </Row>
         <Row>
           <Col>
-            <Button>Submit</Button>
+            <Button onClick={() => {
+              Auth.login(() => {
+                props.history.push("/");
+                console.log(Auth.isAuthenticated);
+              });
+            }}>Submit</Button>
           </Col>
         </Row>
         <Row>
