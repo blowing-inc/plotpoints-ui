@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, SetStateAction } from 'react';
 
 import { ListGroup, ListGroupItem, Form, FormGroup, Input } from 'reactstrap';
 
 import styles from './Listen.module.css';
 
 
-type CommentsProps = {
-  groupId: string
+interface CommentsProps {
+  groupId: string,
+  seconds: number,
+  setSeconds: React.Dispatch<SetStateAction<number>>
 }
 
 interface IComment {
@@ -36,18 +38,23 @@ const Comments = (props: CommentsProps) => {
   }
 
   const addComment = (commentBody: string): void => {
-    const newComments: IComment[] = [...comments, { time: Date.now(), user: "user", comment: commentBody }];
+    const newComments: IComment[] = [...comments, { time: props.seconds, user: "user", comment: commentBody }];
     setComments(newComments);
   }
 
   return (
     <ListGroup className={styles.listGroup}>
-        <Form onSubmit={handleSubmit}>
-          <FormGroup>
-            <Input type="text" name="comment-body" placeholder="Share your thoughts" onChange={e => setBody(e.target.value)} required value={body} />
-            <Input type="submit" hidden />
-          </FormGroup>
-        </Form>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Input 
+            type="text" 
+            name="comment-body" 
+            placeholder="Share your thoughts"
+            onChange={e => setBody(e.target.value)} 
+            required value={body} />
+          <Input type="submit" hidden />
+        </FormGroup>
+      </Form>
 
       {comments.slice().reverse().map((comment: IComment, index: number) => {
         return <ListGroupItem key={index} className="list-group-item d-flex justify-content-between align-items-center">
