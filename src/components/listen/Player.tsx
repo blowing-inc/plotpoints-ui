@@ -1,4 +1,4 @@
-import React, { SetStateAction } from 'react';
+import React, { useState, SetStateAction } from 'react';
 
 // import AudioCard from 'audiocard';
 import ReactAudioPlayer from 'react-audio-player';
@@ -11,10 +11,15 @@ interface IProps {
 
 const Player = (props: IProps) => {
 
-  const { seconds, setSeconds } = props;
+  const { setSeconds } = props;
+  const [ volume, setVolume ] = useState<number>(1.0);
 
   const updateTime = (e: any) => {
     setSeconds(Math.round(e));
+  }
+
+  const divStyle = {
+    width: "100%",
   }
 
   return (
@@ -22,8 +27,11 @@ const Player = (props: IProps) => {
       src={props.source}
       controls
       listenInterval={1000}
+      volume={volume}
       onListen={(e: any) => updateTime(e) }
       onSeeked={(e: any) => updateTime(e) }
+      onVolumeChanged={(e: any) => setVolume(e)}
+      style={divStyle}
     />
   );
 }
